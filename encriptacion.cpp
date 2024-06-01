@@ -115,3 +115,36 @@ void mostrarArray(char matrizPalabras[4][20])
         cout << endl;
     }
 }
+void Paso1 (char ArrayPalabras[4][20])
+{
+	cout << "\nCon Paso 1:" << endl;
+	for (int Filas = 0 ; Filas < 4 ; Filas++)
+	{
+		
+		for (int Columnas = 0 ; Columnas < 20 ; Columnas++)
+		{
+			
+			//Para minusculas
+			if ((ArrayPalabras [Filas][Columnas] >= 'a') && (ArrayPalabras[Filas][Columnas] < 'z')) 
+			{
+				ArrayPalabras[Filas][Columnas] = ArrayPalabras[Filas][Columnas] + 1;
+			} else
+			
+			if (ArrayPalabras[Filas][Columnas] == 'z')
+			{
+				ArrayPalabras[Filas][Columnas] = 'a';
+			}else 
+			
+			//Para mayusculas
+			if ((ArrayPalabras [Filas][Columnas] >= 'A') && (ArrayPalabras [Filas][Columnas] < 'Z'))
+			{
+				ArrayPalabras[Filas][Columnas] = ArrayPalabras[Filas][Columnas] + 1;
+			} else
+			
+			if (ArrayPalabras[Filas][Columnas] == 'Z')
+			{
+				ArrayPalabras[Filas][Columnas] = 'A';
+			}
+		}
+	}
+}
