@@ -8,8 +8,9 @@ using namespace std;
 
 void cargarArray(char matrizPalabras[4][20]);
 void mostrarArray(char matrizPalabras[4][20]);
-void InvertirVocales (char matrizPalabras[4][20]);
 void encriptadoPaso1 (char matrizPalabras[4][20]);
+void InvertirVocales (char matrizPalabras[4][20]);
+
 int main (){
 
     //desplazamiento en 1
@@ -153,10 +154,9 @@ void mostrarArray(char matrizPalabras[4][20])
 //#Paso 1
 void encriptadoPaso1 (char matrizPalabras[4][20])
 {
-    cout << "Con Paso 1:" << endl;
     for (int filas = 0 ; filas < 4 ; filas++)
     {
-        for (int columnas = 0 ; columnas < 20 ; columnas++)
+        for (int columnas = 0 ; columnas < 20 && matrizPalabras[filas][columnas] != '\0'; columnas++)
         {
             //Para minusculas
             if ((matrizPalabras[filas][columnas] >= 'a') && (matrizPalabras[filas][columnas] < 'z')) 
