@@ -167,7 +167,6 @@ void encriptadoPaso1 (char matrizPalabras[4][20])
             {
                 matrizPalabras[filas][columnas] = 'a';
             } 
-            cout<<matrizPalabras[filas][columnas];
             //Para mayusculas
             if ((matrizPalabras [filas][columnas] >= 'A') && (matrizPalabras [filas][columnas] < 'Z'))
             {
