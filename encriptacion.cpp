@@ -12,10 +12,8 @@ void encriptadoPaso1 (char matrizPalabras[4][20]);
 void InvertirVocales (char matrizPalabras[4][20]);
 
 int main (){
-
     //desplazamiento en 1
     //vocales invertidas
-
     int filas = 4;
     int columnas = 20;
     char matrizPalabras[4][20] = {};
