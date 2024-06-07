@@ -8,8 +8,8 @@ using namespace std;
 
 void cargarArray(char matrizPalabras[4][20]);
 void mostrarArray(char matrizPalabras[4][20]);
-void encriptadoPaso1 (char matrizPalabras[4][20]);
-void InvertirVocales (char matrizPalabras[4][20]);
+void encriptadoPaso1 (char matrizPalabras[4][20], char matrizCopia[4][20]);
+void InvertirVocales (char matrizPalabras[4][20], char matrizCopiaVocales[4][20]);
 void ambasTecnicas (char matrizPalabras[4][20]);
 
 int main (){
@@ -18,6 +18,8 @@ int main (){
     int filas = 4;
     int columnas = 20;
     char matrizPalabras[4][20] = {};
+    char matrizCopia[4][20] = {};
+    char matrizCopiaVocales[4][20] = {};
     int opcElegida;
     bool palabra = false;
     cout<<"Bienvenido a nuestro sistema de encriptacion"<<endl;
@@ -67,7 +69,7 @@ int main (){
         case 3:
             if (palabra)
             {
-                encriptadoPaso1(matrizPalabras);
+                encriptadoPaso1(matrizPalabras,matrizCopia);
                 cout << "-------------------"<<endl;
                 cout << "Proceso finalizado."<<endl;
                 system("pause");
@@ -83,7 +85,7 @@ int main (){
         case 4:
             if (palabra)
             {
-                InvertirVocales(matrizPalabras);
+                InvertirVocales(matrizPalabras,matrizCopiaVocales);
                 cout << "-------------------"<<endl;
                 cout << "Proceso finalizado."<<endl;
                 system("pause");
@@ -166,9 +168,8 @@ void mostrarArray(char matrizPalabras[4][20])
     }
 }
 //#Paso 1
-void encriptadoPaso1 (char matrizPalabras[4][20])
+void encriptadoPaso1 (char matrizPalabras[4][20], char matrizCopia[4][20])
 {
-    char matrizCopia[4][20];
     for (int filas = 0; filas < 4; filas++)
     {
         for (int columnas = 0; columnas < 20; columnas++)
@@ -213,59 +214,63 @@ void encriptadoPaso1 (char matrizPalabras[4][20])
     }
 }
 //#Vocales invertidas
-void InvertirVocales (char matrizPalabras[4][20]) 
+void InvertirVocales (char matrizPalabras[4][20], char matrizCopiaVocales[4][20]) 
 {
-    char matrizCopia[4][20];
     for (int filas = 0; filas < 4; filas++)
     {
         for (int columnas = 0; columnas < 20; columnas++)
         {
-            matrizCopia[filas][columnas] = matrizPalabras[filas][columnas];
+            matrizCopiaVocales[filas][columnas] = matrizPalabras[filas][columnas];
         }
     }
 	for (int filas = 0; filas < 4; filas++){
 		for (int columnas = 0; columnas < 20; columnas++){
 			//Minusculas
-			if (matrizCopia[filas][columnas] == 'a' ){
-				matrizCopia[filas][columnas] = 'u';
-			} else
-			if (matrizCopia[filas][columnas] == 'e' ){
-				matrizCopia[filas][columnas] = 'o';
-			} else
-			if (matrizCopia[filas][columnas] == 'o' ){
-				matrizCopia[filas][columnas] = 'e';
-			} else 
-			if (matrizCopia[filas][columnas] == 'u' ){
-				matrizCopia[filas][columnas] = 'a';
-			} else
+			if (matrizCopiaVocales[filas][columnas] == 'a' ){
+				matrizCopiaVocales[filas][columnas] = 'u';
+			}else
+			if (matrizCopiaVocales[filas][columnas] == 'e' ){
+				matrizCopiaVocales[filas][columnas] = 'o';
+			}else
+			if (matrizCopiaVocales[filas][columnas] == 'o' ){
+				matrizCopiaVocales[filas][columnas] = 'e';
+			}else 
+			if (matrizCopiaVocales[filas][columnas] == 'u' ){
+				matrizCopiaVocales[filas][columnas] = 'a';
+			}
 			//Para maymatrizCopia
-			if (matrizCopia[filas][columnas] == 'A' ){
-				matrizCopia[filas][columnas] = 'U';
-			} else
-			if (matrizCopia[filas][columnas] == 'U' ){
-				matrizCopia[filas][columnas] = 'A';
-			} else
-			if (matrizCopia[filas][columnas] == 'E' ){
-				matrizCopia[filas][columnas] = 'O';
-			} else
-			if (matrizCopia[filas][columnas] == 'O' ){
-				matrizCopia[filas][columnas] = 'E';
+			if (matrizCopiaVocales[filas][columnas] == 'A' ){
+				matrizCopiaVocales[filas][columnas] = 'U';
+			}else
+			if (matrizCopiaVocales[filas][columnas] == 'U' ){
+				matrizCopiaVocales[filas][columnas] = 'A';
+			}else
+			if (matrizCopiaVocales[filas][columnas] == 'E' ){
+				matrizCopiaVocales[filas][columnas] = 'O';
+			}else
+			if (matrizCopiaVocales[filas][columnas] == 'O' ){
+				matrizCopiaVocales[filas][columnas] = 'E';
 			}
 		}
 	}
     cout<< "Encriptado de Vocales Inversas"<<endl;
-    for (int filas = 0; filas < 4; filas++)
+    for(int filas = 0; filas < 4; filas++)
     {
         cout<<"La Palabra "<<filas + 1<<" es: "<<endl;
         for (int columnas = 0; columnas < 20; columnas++)
         {
-            cout << matrizCopia[filas][columnas];
+            cout << matrizCopiaVocales[filas][columnas];
         }
         cout << endl;
     }
 }
 void ambasTecnicas (char matrizPalabras[4][20])
 {
-    encriptadoPaso1(matrizPalabras);
-    InvertirVocales(matrizPalabras);
+    char matrizCopia[4][20];
+    char matrizCopiaVocales[4][20];
+
+    encriptadoPaso1(matrizPalabras, matrizCopia);
+
+    InvertirVocales(matrizCopia, matrizCopiaVocales);
+
 }
