@@ -268,9 +268,6 @@ void ambasTecnicas (char matrizPalabras[4][20])
 {
     char matrizCopia[4][20];
     char matrizCopiaVocales[4][20];
-
     encriptadoPaso1(matrizPalabras, matrizCopia);
-
     InvertirVocales(matrizCopia, matrizCopiaVocales);
-
 }
