@@ -5,6 +5,10 @@
 #include <cctype>
 using namespace std;
 
+    //*TECNICAS CRIPTOGRAFICAS
+    //*desplazamiento en 1
+    //*vocales invertidas
+    //?Integrantes: Martorell, Segura
 
 void cargarArray(char matrizPalabras[4][20]);
 void mostrarArray(char matrizPalabras[4][20]);
@@ -13,8 +17,6 @@ void InvertirVocales (char matrizPalabras[4][20], char matrizCopiaVocales[4][20]
 void ambasTecnicas (char matrizPalabras[4][20]);
 
 int main (){
-    //desplazamiento en 1
-    //vocales invertidas
     int filas = 4;
     int columnas = 20;
     char matrizPalabras[4][20] = {};
@@ -51,7 +53,7 @@ int main (){
             system("cls");
             break;
         case 2:
-            if (palabra) //si palabra es true que pase a mostrar la palabra, sino nunca se cargo el array
+            if (palabra)    //si palabra es true que pase a mostrar la palabra, sino nunca se cargo el array
             {
                 mostrarArray(matrizPalabras);
                 cout << "-------------------"<<endl;
@@ -149,7 +151,7 @@ void cargarArray(char matrizPalabras[4][20])
             }
             for (int columnas = longitudPalabra; columnas < 20; columnas++)
             {
-                matrizPalabras[filas][columnas] = '\0'; //? Asigna el caracter nulo a las posiciones vacias. previene simbolos y datos basuras en el display.
+                matrizPalabras[filas][columnas] = '\0'; // Asigna el caracter nulo a las posiciones vacias. previene simbolos y datos basuras en el display.
             }
         }
     }
@@ -213,7 +215,7 @@ void encriptadoPaso1 (char matrizPalabras[4][20], char matrizCopia[4][20])
         cout << endl;
     }
 }
-//#Vocales invertidas
+//Vocales invertidas
 void InvertirVocales (char matrizPalabras[4][20], char matrizCopiaVocales[4][20]) 
 {
     for (int filas = 0; filas < 4; filas++)
