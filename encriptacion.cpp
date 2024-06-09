@@ -27,25 +27,25 @@ int main (){
     cout<<"Bienvenido a nuestro sistema de encriptacion"<<endl;
     do
     {
-        cout<<"Elija una opcion:"<<endl;
-        cout<<"(1). Cargar arrays con palabras."<<endl;
-        cout<<"(2). Mostrar el array cargado."<<endl;
-        cout<<"(3). Encriptar palabras con desplazamiento 1."<<endl;
-        cout<<"(4). Encriptar palabras con vocales invertidas."<<endl;
-        cout<<"(5). Ambas tecnicas de encriptacion."<<endl;
-        cout<<"(0). Salir del sistema."<<endl;
+        cout << "Elija una opcion:"<<endl;
+        cout << "(1). Cargar arrays con palabras."<<endl;
+        cout << "(2). Mostrar el array cargado."<<endl;
+        cout << "(3). Encriptar palabras con desplazamiento 1."<<endl;
+        cout << "(4). Encriptar palabras con vocales invertidas."<<endl;
+        cout << "(5). Ambas tecnicas de encriptacion."<<endl;
+        cout << "(0). Salir del sistema."<<endl;
         cin>>opcElegida;
         
         switch (opcElegida)
         {
         case 1:
-            cout<<"-------------------------------------------------------------------------------"<<endl;            
-            cout<<"***** INDICACIONES *****"<<endl;
-            cout<<"Tiene la posibilidad de ingresar hasta 4 palabras de 20 caracteres como maximo."<<endl;
-            cout<<"Carge una palabra a la vez."<<endl;
-            cout<<"La palabra debe ser ingresada en minusculas."<<endl;
-            cout<<"Al terminar la palabra, ingrese un punto (.) para finalizar."<<endl;
-            cout<<"-------------------------------------------------------------------------------"<<endl;
+            cout << "-------------------------------------------------------------------------------"<<endl;            
+            cout << "***** INDICACIONES *****"<<endl;
+            cout << "Tiene la posibilidad de ingresar hasta 4 palabras de 20 caracteres como maximo."<<endl;
+            cout << "Carge una palabra a la vez."<<endl;
+            cout << "La palabra debe ser ingresada en minusculas."<<endl;
+            cout << "Al terminar la palabra, ingrese un punto (.) para finalizar."<<endl;
+            cout << "-------------------------------------------------------------------------------"<<endl;
             cargarArray(matrizPalabras);
             palabra = true;
             cout<<"El array ha sido cargado exitosamente."<<endl;
@@ -161,7 +161,7 @@ void mostrarArray(char matrizPalabras[4][20])
 {
     for (int filas = 0; filas < 4; filas++)
     {
-        cout<<"La Palabra "<<filas + 1<<" es: "<<endl;
+        cout<<"La Palabra "<< filas + 1 <<" es: "<<endl;
         for (int columnas = 0; columnas < 20; columnas++)
         {
             cout << matrizPalabras[filas][columnas];
@@ -182,18 +182,18 @@ void encriptadoPaso1 (char matrizPalabras[4][20], char matrizCopia[4][20])
     for (int Filas = 0; Filas < 4; Filas++) {
         for (int Columnas = 0; Columnas < 20; Columnas++) {
             // Preguntamos si es distinto que las vocales ya que no debemos modificarlas
-            if ((matrizCopia[Filas][Columnas] != 'a') and
-                (matrizCopia[Filas][Columnas] != 'e') and
-                (matrizCopia[Filas][Columnas] != 'i') and
-                (matrizCopia[Filas][Columnas] != 'o') and
-                (matrizCopia[Filas][Columnas] != 'u') and
-                (matrizCopia[Filas][Columnas] != 'A') and
-                (matrizCopia[Filas][Columnas] != 'E') and
-                (matrizCopia[Filas][Columnas] != 'I') and
-                (matrizCopia[Filas][Columnas] != 'O') and
+            if ((matrizCopia[Filas][Columnas] != 'a') &&
+                (matrizCopia[Filas][Columnas] != 'e') &&
+                (matrizCopia[Filas][Columnas] != 'i') &&
+                (matrizCopia[Filas][Columnas] != 'o') &&
+                (matrizCopia[Filas][Columnas] != 'u') &&
+                (matrizCopia[Filas][Columnas] != 'A') &&
+                (matrizCopia[Filas][Columnas] != 'E') &&
+                (matrizCopia[Filas][Columnas] != 'I') &&
+                (matrizCopia[Filas][Columnas] != 'O') &&
                 (matrizCopia[Filas][Columnas] != 'U')) {
 
-                // Ahora antes de sumarle 1 al array nos fijamos si al hacerlo este resultado da una vocal y la salteamos
+                // AL sumarle 1 a la matriz nos fijamos si al hacerlo este resultado da una vocal y la salteamos
                 if (matrizCopia[Filas][Columnas] + 1 == 'e') {
                     matrizCopia[Filas][Columnas] = 'f';
                 }
@@ -231,10 +231,10 @@ void encriptadoPaso1 (char matrizPalabras[4][20], char matrizCopia[4][20])
         }
     }
 
-    cout<< "Encriptados paso 1"<<endl;
+    cout << "Encriptados paso 1"<<endl;
     for (int filas = 0; filas < 4; filas++)
     {
-        cout<<"La Palabra "<<filas + 1<<" es: "<<endl;
+        cout <<"La Palabra "<< filas + 1 <<" es: "<<endl;
         for (int columnas = 0; columnas < 20; columnas++)
         {
             cout << matrizCopia[filas][columnas];
