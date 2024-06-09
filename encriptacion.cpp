@@ -151,7 +151,7 @@ void cargarArray(char matrizPalabras[4][20])
             }
             for (int columnas = longitudPalabra; columnas < 20; columnas++)
             {
-                matrizPalabras[filas][columnas] = '\0'; // Asigna el caracter nulo a las posiciones vacias. previene simbolos y datos basuras en el display.
+                matrizPalabras[filas][columnas] = ' '; // Asigna el caracter nulo a las posiciones vacias. previene simbolos y datos basuras en el display.
             }
         }
     }
@@ -179,31 +179,58 @@ void encriptadoPaso1 (char matrizPalabras[4][20], char matrizCopia[4][20])
             matrizCopia[filas][columnas] = matrizPalabras[filas][columnas];
         }
     }
-    for (int filas = 0 ; filas < 4 ; filas++)
-    {
-        for (int columnas = 0 ; columnas < 20 && matrizCopia[filas][columnas] != '\0'; columnas++)
-        {
-            //Para minusculas
-            if ((matrizCopia[filas][columnas] >= 'a') && (matrizCopia[filas][columnas] < 'z')) 
-            {
-                matrizCopia[filas][columnas] = matrizCopia[filas][columnas] + 1;
-            } else
-            if (matrizCopia[filas][columnas] == 'z')
-            {
-                matrizCopia[filas][columnas] = 'a';
-            } 
-            //Para mayusculas
-            if ((matrizCopia[filas][columnas] >= 'A') && (matrizCopia [filas][columnas] < 'Z'))
-            {
-                matrizCopia[filas][columnas] = matrizCopia[filas][columnas] + 1;
-            } else
-            
-            if (matrizCopia[filas][columnas] == 'Z')
-            {
-                matrizCopia[filas][columnas] = 'A';
+    for (int Filas = 0; Filas < 4; Filas++) {
+        for (int Columnas = 0; Columnas < 20; Columnas++) {
+            // Preguntamos si es distinto que las vocales ya que no debemos modificarlas
+            if ((matrizCopia[Filas][Columnas] != 'a') and
+                (matrizCopia[Filas][Columnas] != 'e') and
+                (matrizCopia[Filas][Columnas] != 'i') and
+                (matrizCopia[Filas][Columnas] != 'o') and
+                (matrizCopia[Filas][Columnas] != 'u') and
+                (matrizCopia[Filas][Columnas] != 'A') and
+                (matrizCopia[Filas][Columnas] != 'E') and
+                (matrizCopia[Filas][Columnas] != 'I') and
+                (matrizCopia[Filas][Columnas] != 'O') and
+                (matrizCopia[Filas][Columnas] != 'U')) {
+
+                // Ahora antes de sumarle 1 al array nos fijamos si al hacerlo este resultado da una vocal y la salteamos
+                if (matrizCopia[Filas][Columnas] + 1 == 'e') {
+                    matrizCopia[Filas][Columnas] = 'f';
+                }
+                else if (matrizCopia[Filas][Columnas] + 1 == 'i') {
+                    matrizCopia[Filas][Columnas] = 'j';
+                }
+                else if (matrizCopia[Filas][Columnas] + 1 == 'o') {
+                    matrizCopia[Filas][Columnas] = 'p';
+                }
+                else if (matrizCopia[Filas][Columnas] + 1 == 'u') {
+                    matrizCopia[Filas][Columnas] = 'v';
+                }
+                else if (matrizCopia[Filas][Columnas] == 'z') {
+                    matrizCopia[Filas][Columnas] = 'b';
+                }
+                else if (matrizCopia[Filas][Columnas] + 1 == 'E') {
+                    matrizCopia[Filas][Columnas] = 'F';
+                }
+                else if (matrizCopia[Filas][Columnas] + 1 == 'I') {
+                    matrizCopia[Filas][Columnas] = 'J';
+                }
+                else if (matrizCopia[Filas][Columnas] + 1 == 'O') {
+                    matrizCopia[Filas][Columnas] = 'P';
+                }
+                else if (matrizCopia[Filas][Columnas] + 1 == 'U') {
+                    matrizCopia[Filas][Columnas] = 'V';
+                }
+                else if (matrizCopia[Filas][Columnas] == 'Z') {
+                    matrizCopia[Filas][Columnas] = 'B';
+                }
+                else if (matrizCopia[Filas][Columnas] != ' ') {
+                    matrizCopia[Filas][Columnas] = matrizCopia[Filas][Columnas] + 1;
+                }
             }
         }
     }
+
     cout<< "Encriptados paso 1"<<endl;
     for (int filas = 0; filas < 4; filas++)
     {
